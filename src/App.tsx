@@ -1,12 +1,15 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './App.scss';
+import HomeView from './components/HomeView';
 
-function App() {
-  return (
-    <div className="App">
-     <h1>dsfdsffffds</h1>
-    </div>
-  );
+
+export default class App extends React.Component<{}, {}> {
+  render() {
+    return (
+      <div className="app">
+       <HomeView/>
+      </div>
+    );
+  }
 }
 
-export default App;
