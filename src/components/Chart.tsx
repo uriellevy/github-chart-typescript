@@ -15,10 +15,15 @@ export default class Chart extends Component {
         datesObject[startDate.toLocaleDateString()] = 0;
         startDate.setDate(startDate.getDate() + 1)
        }
-
+     console.log(typeof new Date(dates[0]).toLocaleDateString())
+     for (let date of dates) {
+       if (datesObject[new Date(date).toLocaleDateString()] === 0) {
+        datesObject[new Date(date).toLocaleDateString()] = 1
+       } else datesObject[new Date(date).toLocaleDateString()] += 1;
+     }
   }
-  // console.log(datesObject)
-    dateHandler();
+  dateHandler();
+  console.log(datesObject)
     return (
       <ul className='chart-container'>
           {/* {datesOfFuLLYear.map((date, idx) => (
