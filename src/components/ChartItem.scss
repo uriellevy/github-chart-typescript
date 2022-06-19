@@ -1,7 +1,24 @@
 .chart-item-wrapper {
     width: 10px;
     height: 10px;
-    background-color: #f5f5f5;
     list-style: none;
     margin: 2px;
 }
+
+.zero-contributions {
+  background-color: #f5f5f5;
+}
+
+.light-color {
+  background-color: #6cc644;
+    
+}
+.medium-color {
+  background-color: #74cd79;
+
+}
+.heavy-color {
+  background-color: #2f4d28;
+
+}
+
