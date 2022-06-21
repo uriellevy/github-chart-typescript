@@ -31,6 +31,11 @@ export default class Chart extends React.Component<{}, ChartState> {
   // }
   onMouseEnterHandler = (id: number) => {
     this.setState({hover: true})
+    // console.log(dates.findIndex((arr, idx) => idx === id)) 
+    const hoverItem = new Date(dates[dates.findIndex((arr, idx) => idx === id)]).toLocaleDateString()
+    // console.log(new Date(dates[dates.findIndex((arr, idx) => idx === id)]).toLocaleDateString() )
+    return hoverItem
+
   }
   onMouseLeaveHandler = (id: number) => {
     this.setState({hover: false})
