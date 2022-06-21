@@ -5,7 +5,14 @@ import "./Chart.scss";
 
 const datesObject:{ [key: string]: number } = {};
 
-export default class Chart extends Component {
+interface ChartState {
+  hover: boolean
+}
+
+export default class Chart extends React.Component<{}, ChartState> {
+  state = {
+    hover: false,
+  }
   dateHandler = () => {
    const startDate = new Date("2019-01-07T00:32:00.649Z");
    const endDate = new Date("2020-01-06T03:52:39.016Z");
@@ -22,15 +29,29 @@ export default class Chart extends Component {
 // componentDidMount() {
   //   this.dateHandler();
   // }
+  onMouseEnterHandler = (id: number) => {
+    this.setState({hover: true})
+  }
+  onMouseLeaveHandler = (id: number) => {
+    this.setState({hover: false})
+  }
   
   render() {
     this.dateHandler();
-  
+    const {hover} = this.state;
   // console.log(Object.entries(datesObject))
     return (
       <ul className='chart-container'>
           {Object.entries(datesObject).map((dateItem, idx) => (
-            <ChartItem key={idx} dateItem={dateItem}/>
+            <ChartItem 
+            key={idx} 
+            dateItem={dateItem} 
+            id={idx} 
+            onMouseEnterHandler={this.onMouseEnterHandler}
+            onMouseLeaveHandler={this.onMouseLeaveHandler}
+            itemHover={hover}
+            
+            />
           ))}
       </ul>
     )
